@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  --color-primary-50: oklch(0.97 0.02 240);
+  --color-primary-100: oklch(0.93 0.04 240);
+  --color-primary-200: oklch(0.86 0.08 240);
+  --color-primary-400: oklch(0.68 0.14 240);
+  --color-primary-500: oklch(0.58 0.18 240);
+  --color-primary-600: oklch(0.5 0.19 240);
+  --color-primary-700: oklch(0.42 0.17 240);
+  --color-surface-50: oklch(0.985 0.002 75);
+  --color-surface-100: oklch(0.965 0.006 75);
+  --color-surface-200: oklch(0.91 0.01 75);
+  --color-ink-900: oklch(0.22 0.02 75);
+  --color-ink-600: oklch(0.42 0.02 75);
+  --color-ink-500: oklch(0.52 0.02 75);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-ink-900 antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary-100 text-ink-900;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-500;
+  }
+}
+
+/* Rich text from TinyMCE / html-react-parser */
+@layer components {
+  .browser-css {
+    @apply max-w-none text-ink-600 leading-relaxed;
+  }
+
+  .browser-css > * + * {
+    @apply mt-4;
+  }
+
+  .browser-css h1,
+  .browser-css h2,
+  .browser-css h3 {
+    @apply font-semibold text-ink-900 tracking-tight;
+  }
+
+  .browser-css h1 {
+    @apply text-2xl mt-8;
+  }
+
+  .browser-css h2 {
+    @apply text-xl mt-8;
+  }
+
+  .browser-css h3 {
+    @apply text-lg mt-6;
+  }
+
+  .browser-css p {
+    @apply leading-7;
+  }
+
+  .browser-css a {
+    @apply text-primary-600 underline decoration-primary-400/50 underline-offset-2 transition-colors hover:text-primary-700;
+  }
+
+  .browser-css ul,
+  .browser-css ol {
+    @apply my-4 pl-6;
+  }
+
+  .browser-css ul {
+    @apply list-disc;
+  }
+
+  .browser-css ol {
+    @apply list-decimal;
+  }
+
+  .browser-css li {
+    @apply my-1.5;
+  }
+
+  .browser-css blockquote {
+    @apply border-l-4 border-primary-200 pl-4 italic text-ink-500 my-6;
+  }
+
+  .browser-css img {
+    @apply rounded-lg max-w-full h-auto my-6;
+  }
+
+  .browser-css pre,
+  .browser-css code {
+    @apply text-sm;
+  }
+
+  .browser-css pre {
+    @apply overflow-x-auto rounded-lg bg-stone-900 p-4 text-stone-100 my-6;
+  }
+
+  .browser-css code {
+    @apply rounded bg-surface-200 px-1.5 py-0.5 text-ink-900;
+  }
+
+  .browser-css pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  .browser-css table {
+    @apply w-full border-collapse text-sm my-6;
+  }
+
+  .browser-css th,
+  .browser-css td {
+    @apply border border-surface-200 px-3 py-2 text-left;
+  }
+
+  .browser-css th {
+    @apply bg-surface-100 font-semibold text-ink-900;
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-in {
+  animation: page-fade-in 0.35s ease-out both;
+}
