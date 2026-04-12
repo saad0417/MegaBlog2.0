@@ -56,7 +56,7 @@ export default function Post() {
             height={630}
             fetchPriority="high"
             decoding="async"
-            className="max-h-[min(70vh,560px)] w-full object-cover"
+            className="max-h-[min(70vh,560px)] w-full "
           />
           {isAuthor && (
             <div className="absolute right-4 top-4 flex flex-wrap gap-2">
